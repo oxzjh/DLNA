@@ -1,7 +1,7 @@
 package main
 
 import (
-	"api/dlna"
+	_ "api/dlna"
 	"context"
 	"embed"
 	"fmt"
@@ -15,7 +15,6 @@ import (
 var dist embed.FS
 
 func main() {
-	dlna.Initialize(-1000, -1001)
 	http.Domains = []string{"*"}
 	http.AllowHeaders = "*"
 	l1, port1, err := server.ServeLocal(http.NewServer())
