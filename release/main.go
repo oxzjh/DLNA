@@ -30,8 +30,6 @@ func main() {
 	}
 	defer c.Close()
 
-	c.DisableContextMenu()
-	c.DisableDevTools()
 	c.Bind("fetchURL", func() string {
 		return apiURL
 	})
@@ -43,5 +41,7 @@ func main() {
 	defer l2.Close()
 
 	c.Load(fmt.Sprintf("http://127.0.0.1:%d/dist", port2))
+	c.DisableContextMenu()
+	c.DisableDevTools()
 	<-c.Done()
 }
